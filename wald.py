@@ -1,30 +1,28 @@
 import turtle as t
 import random
 
-t.speed (0)
+def rbaum (age=100):
+    """paint a recursiv tree"""
+    if age < 5:
+        return
+    t.pd()
+    t. fd(age)
+    t. rt(45)
+    rbaum(age/2)
+    t. lt(90)
+    rbaum(age/2)
+    t. rt(45)
+    t. pu()
+    t. fd(-age)
+    return
 
-def tree (age= 100):
-    """paint a tree"""
-    t. pd ()
-    t. fd (age * 0.3)
-    t. lt (90)
-    t. fd (age * 1.3)
-    t. lt (90)
-    t. fd (age * 0.15)
-    t. circle (age * -0.6)
-    t. fd (age * 0.15)
-    t. lt (90)
-    t. fd (age * 1.3)
-    t. lt (90)
-    t. pu ()
-
-def forest (amount= 100):
-    """paint a forest"""
-    t. clear ()
-    t. pu ()
-    for x in range (amount):
-        t. setpos (random. randint (-400,400),random. randint (-300,300))
-        tree (random. randint (10,200))
-
-if __name__ =="__main__":
-    forest ()
+if __name__=="__main__":
+    t. speed(0)
+    t. home()
+    t. clear()
+    t. lt(90)
+    t. pu()
+    t. fd(-200)
+    for x in range(20):
+        t. setpos(random.randint(-400,400), random.randint(-350,70))
+        rbaum (random.randint(40,201))
